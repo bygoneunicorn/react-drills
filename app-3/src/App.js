@@ -7,25 +7,25 @@ class App extends Component {
     super()
 
     this.state = {
-      filterStr: '',
-      foods: ['spaghetti', 'ice cream', 'sushi', 'bologna', 'cheese']
+      foods: ['spaghetti','cheese','meatballs','water','pizza'],
+      input: ''
     }
   }
-  foodFilter( filter ){
-    this.setState({filterStr: filter})
+  handleInput(val){
+    this.setState({input: val})
   }
 
-  render() {
-    var foodsDisplayed = this.state.foods.filter( (e,i) => {
-      return e.includes (this.state.filterStr);
-    }).map((e, i) =>{
-      return <h2 key={i}> {e} </h2>
-    })
 
+  render() {
+    var foodsToDisplay = this.state.foods.filter((e,i)=>{
+      return e.includes( this.state.input );
+    }).map((e,i) =>{
+      return <h2 key={i}>{e}</h2>
+    })
     return (
       <div className="App">
-        <input type="text" onChange = {(e)=> this.foodFilter(e.target.value)}/>
-        {foodsDisplayed}
+        <input onChange={(e) => this.handleInput(e.target.value)}/>
+        {foodsToDisplay}
       </div>
     );
   }

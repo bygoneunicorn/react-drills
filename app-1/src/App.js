@@ -5,21 +5,22 @@ import './App.css';
 class App extends Component {
   constructor(){
     super()
-      this.state = {
-        message: ''
-      }
-  }
 
-  updateMessage(value){
-    this.setState ({message: value})
-    
+    this.state = {
+      input: ''
+    }
+    this.handleInput = this.handleInput.bind( this )
+  }
+  handleInput(val){
+    this.setState({input: val})
   }
 
   render() {
     return (
       <div className ='App'>
-        <input onChange = {(e) => this.updateMessage(e.target.value)} type="text" />
-        <p>{this.state.message}</p>
+        <input onChange = {(e) => this.handleInput(e.target.value)}/>
+        <br />
+        <h2>{this.state.input}</h2>
       </div>
     );
   }

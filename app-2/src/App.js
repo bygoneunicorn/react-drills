@@ -6,20 +6,21 @@ class App extends Component {
   constructor(){
     super()
 
-    this.state = {
-      foods: ['spaghetti', 'ice cream', 'sushi', 'bologna', 'cheese']
+    this.state ={
+      foods: ['spaghatti','ice cream','cheeseballs','pretzels','bologna','pizza']
     }
   }
 
   render() {
-    let foodstoDisplay = this.state.foods.map((e,i) =>{
-      return (
-        <h2 key={ i }> { e }</h2>
+    var foodList = this.state.foods.map((e,i) => {
+      return(
+        <h2 key={i}>{e}</h2>
       )
     })
+
     return (
       <div className="App">
-        {foodstoDisplay}
+        {foodList}
       </div>
     );
   }
